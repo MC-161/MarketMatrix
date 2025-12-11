@@ -1,0 +1,51 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**' # Only trigger when backend code changes
+  # Enables the "Run workflow" button in GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 1. Install Zip Tool
+      - name: Install Zip
+        uses: montudor/action-zip@v1
+
+      # 2. Configure AWS Credentials (Official Action)
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1 # Ensure this matches your region
+
+      # 3. Zip and Deploy Orchestrator
+      - name: Deploy Orchestrator
+        run: |
+          cd backend/orchestrator
+          zip -r orchestrator.zip .
+          aws lambda update-function-code --function-name OrchestratorLambda --zip-file fileb://orchestrator.zip
+
+      # 4. Zip and Deploy Worker
+      - name: Deploy Worker
+        run: |
+          cd backend/worker
+          zip -r worker.zip .
+          aws lambda update-function-code --function-name WorkerLambda --zip-file fileb://worker.zip
+
+      # 5. Zip and Deploy Aggregator
+      - name: Deploy Aggregator
+        run: |
+          cd backend/aggregator
+          zip -r aggregator.zip .
+          aws lambda update-function-code --function-name AggregatorLambda --zip-file fileb://aggregator.zip

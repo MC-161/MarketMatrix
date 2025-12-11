@@ -1,0 +1,43 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**' # Only trigger when frontend code changes
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20' # Vite works best with modern Node
+
+    - name: Install Dependencies
+      working-directory: ./frontend
+      run: npm ci
+
+    - name: Build Vite Project
+      working-directory: ./frontend
+      run: npm run build
+      # This generates the 'dist' folder
+
+    - name: Deploy to S3 (UI Bucket)
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        # REMOVED '--acl public-read' because your bucket enforces policy-based permissions
+        args: --follow-symlinks --delete
+      env:
+        # ⚠️ Updated to match the bucket name in your error logs
+        AWS_S3_BUCKET: 'marketmatrix-app-2025'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-north-1' # Change if your region is different
+        SOURCE_DIR: 'frontend/dist' # Vite builds to 'dist' by default
