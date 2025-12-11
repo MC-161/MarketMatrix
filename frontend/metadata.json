@@ -1,0 +1,5 @@
+{
+  "name": "Market Matrix",
+  "description": "A serverless financial dashboard visualizing trend reversal signals, RSI, and strategy returns for S&P 100 stocks using a dark-mode heatmap.",
+  "requestFramePermissions": []
+}
