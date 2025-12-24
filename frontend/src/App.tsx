@@ -59,7 +59,7 @@ const App: React.FC = () => {
       {/* Historical Mode Overlay Badge */}
       {isTimeTraveling && (
          <div className="fixed top-24 left-1/2 -translate-x-1/2 z-0 pointer-events-none opacity-20">
-             <h1 className="text-9xl font-black text-amber-500 uppercase tracking-tighter">History</h1>
+             <h1 className="text-9xl font-serif font-black text-amber-500 uppercase text-display">History</h1>
          </div>
       )}
 
@@ -80,11 +80,11 @@ const App: React.FC = () => {
         {loading ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-4">
             <Loader2 size={48} className="text-emerald-500 animate-spin" />
-            <p className="text-slate-400 animate-pulse font-medium">Scanning market signals...</p>
+            <p className="text-charcoal animate-pulse font-medium">Scanning market signals...</p>
           </div>
         ) : filteredStocks.length === 0 ? (
           <div className="text-center py-20 bg-slate-800/30 rounded-3xl border border-slate-800 border-dashed">
-            <p className="text-xl text-slate-400 font-medium">No stocks match your criteria.</p>
+            <p className="text-xl text-charcoal font-medium">No stocks match your criteria.</p>
             <button 
               onClick={() => { setSearchTerm(''); setStatusFilter('ALL'); setSelectedSector('All'); }}
               className="mt-4 text-emerald-400 hover:text-emerald-300 underline underline-offset-4"
@@ -100,7 +100,7 @@ const App: React.FC = () => {
             {viewMode === 'TREEMAP' ? (
                 <div className="animate-in fade-in duration-300">
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-lg font-bold text-slate-200 flex items-center gap-2">
+                        <h2 className="text-lg font-serif font-semibold text-slate-200 flex items-center gap-2">
                             <LayoutDashboard size={20} className="text-purple-400" />
                             Market Map (Size by Cap)
                         </h2>
@@ -123,7 +123,7 @@ const App: React.FC = () => {
                     {/* Watchlist Section */}
                     {watchlistStocks.length > 0 && (
                         <div className="mb-8">
-                            <h2 className="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
+                            <h2 className="text-lg font-serif font-semibold text-slate-200 mb-4 flex items-center gap-2">
                                 <Star size={20} className="fill-yellow-400 text-yellow-400" />
                                 My Watchlist
                             </h2>
@@ -146,7 +146,7 @@ const App: React.FC = () => {
                     {/* All / Remaining Stocks */}
                     {otherStocks.length > 0 && (
                         <div>
-                            <h2 className="text-lg font-bold text-slate-200 mb-4">
+                            <h2 className="text-lg font-serif font-semibold text-slate-200 mb-4">
                                 {watchlistStocks.length > 0 ? 'Other Assets' : 'All Assets'}
                             </h2>
                             {/* Updated Grid for Wider Cards */}

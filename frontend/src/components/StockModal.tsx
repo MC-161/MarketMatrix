@@ -54,7 +54,7 @@ const StockModal: React.FC<StockModalProps> = ({ stock, onClose }) => {
         {/* Modal Header */}
         <div className="p-6 border-b border-gray-800 flex justify-between items-start">
             <div>
-                <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+                <h2 className="text-3xl font-serif font-semibold text-white flex items-center gap-3">
                     {stock.ticker}
                     <div className="relative group">
                         <span className={`px-2 py-1 rounded text-xs font-bold border cursor-help flex items-center gap-1 ${isBullish ? 'bg-emerald-900/30 text-emerald-400 border-emerald-500/30' : 'bg-rose-900/30 text-rose-400 border-rose-500/30'}`}>
@@ -92,7 +92,7 @@ const StockModal: React.FC<StockModalProps> = ({ stock, onClose }) => {
 
                 <div className="flex items-center gap-2 mb-2">
                     <TrendingUp size={18} className={strategyReturn >= 0 ? 'text-emerald-400' : 'text-rose-400'} />
-                    <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider">Strategy Performance</span>
+                    <span className="text-sm font-serif font-semibold text-gray-300 uppercase tracking-wider">Strategy Performance</span>
                 </div>
                 <div className="flex justify-between items-end">
                     <div>
@@ -116,7 +116,7 @@ const StockModal: React.FC<StockModalProps> = ({ stock, onClose }) => {
 
             {/* Technical Analysis & SMA Visualizer */}
             <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-800">
-                <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-serif font-semibold text-gray-300 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <Activity size={16} className="text-blue-400" />
                     Technical Analysis
                 </h3>

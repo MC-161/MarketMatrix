@@ -76,7 +76,7 @@ const TimeTravelFooter: React.FC<TimeTravelFooterProps> = ({
 
               {/* Slider Container */}
               <div className="flex-1 w-full relative">
-                   <div className="flex justify-between text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-widest">
+                   <div className="flex justify-between text-caption-sm uppercase font-bold text-slate-500 mb-2">
                        <span>24 Hours Ago</span>
                        <span className={isTimeTraveling ? 'text-slate-500' : 'text-emerald-500'}>Live Market</span>
                    </div>
@@ -99,7 +99,7 @@ const TimeTravelFooter: React.FC<TimeTravelFooterProps> = ({
                    
                    {/* Floating Label above Thumb */}
                    <div 
-                     className={`absolute -top-10 -translate-x-1/2 text-white text-xs font-bold py-1 px-2 rounded shadow-lg whitespace-nowrap pointer-events-none transition-all duration-300 ${isTimeTraveling ? 'bg-amber-600' : 'bg-emerald-600'}`}
+                     className={`absolute -top-10 -translate-x-1/2 text-white text-caption font-bold py-1 px-2 rounded shadow-lg whitespace-nowrap pointer-events-none transition-all duration-300 ${isTimeTraveling ? 'bg-amber-600' : 'bg-emerald-600'}`}
                      style={{ left: maxIndex > 0 ? `${(displayIndex / maxIndex) * 100}%` : '100%' }}
                    >
                        {currentSnapshotLabel}
@@ -109,7 +109,7 @@ const TimeTravelFooter: React.FC<TimeTravelFooterProps> = ({
 
               {/* Current Status Badge */}
               <div className="hidden md:flex flex-col items-end min-w-[120px]">
-                  <span className="text-[10px] text-slate-400 uppercase">Selected Time</span>
+                  <span className="text-caption-sm text-slate-400 uppercase">Selected Time</span>
                   <span className={`text-sm font-mono font-bold flex items-center gap-2 ${isTimeTraveling ? 'text-amber-400' : 'text-emerald-400'}`}>
                      <Clock size={14} />
                      {currentSnapshotLabel}

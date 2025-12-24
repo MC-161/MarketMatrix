@@ -1,0 +1,66 @@
+/* Typography System - Premium, Non-AI Generated Look */
+
+/* Base typography settings */
+* {
+  font-feature-settings: 'liga' 1, 'kern' 1;
+  font-optical-sizing: auto;
+}
+
+/* Headings - Serif with tight tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-feature-settings: 'liga' 1, 'kern' 1, 'onum' 1;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+/* Body text - Geometric sans with generous line-height */
+body, p, span, div, input, select, textarea, button {
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Display text - extra tight tracking for large sizes */
+.text-display {
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+
+/* Captions - increased tracking for readability */
+.text-caption {
+  letter-spacing: 0.05em;
+  font-size: 0.8rem; /* 12.8px */
+}
+
+.text-caption-sm {
+  letter-spacing: 0.05em;
+  font-size: 0.64rem; /* 10.24px */
+}
+
+/* Text color - deep charcoal with slight emerald tint (not pure black/white) */
+.text-charcoal {
+  color: rgba(230, 232, 235, 0.9) !important;
+}
+
+/* Vertical rhythm - paragraph spacing */
+p + p {
+  margin-top: 1.6em;
+}
+
+/* Section spacing - generous breathing room */
+section + section {
+  margin-top: 2.5rem;
+}
+
+/* Headings spacing */
+h1 + p, h2 + p, h3 + p {
+  margin-top: 1rem;
+}
+
+/* Monospace - preserve for data/code */
+.font-mono {
+  font-feature-settings: 'liga' 0, 'kern' 1;
+  letter-spacing: 0;
+}
+
