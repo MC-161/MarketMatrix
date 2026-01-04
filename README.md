@@ -17,7 +17,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
 
 ## 🔄 1. Overall Application Flow
 
-**What it does**: MarketMatrix transforms the 2023 Mazumder SMA research into a real-time, massively parallelized trading dashboard for the S&P 100.
+**What it does**: MarketMatrix transforms the Mazumder SMA research into a real-time, massively parallelized trading dashboard for the S&P 100.
 
 **How it works**:
 - **Orchestration**: AWS EventBridge triggers a "Write-Path" hourly (scheduled automation).
