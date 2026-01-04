@@ -10,7 +10,22 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
 
 https://marketmatrix-app-2025.s3.eu-north-1.amazonaws.com/index.html
 
-## 👥 Group Contribution & Roles
+---
+
+## 📌 Project Index
+1. [Group Contribution & Roles](#-group-contribution--roles)
+2. [Project Evolution: Exceeding the Proposal](#-1-project-evolution-exceeding-the-proposal)
+3. [Overall Application Flow](#-2-overall-application-flow)
+4. [Frontend Design & Engineering Implementation](#-3-frontend-design--engineering-implementation)
+5. [Backend Logic & Research Extensions](#-4-backend-logic--research-extensions)
+6. [Justified Cloud Usage & Resource Minimization](#-5-cloud-usage--justification)
+7. [Technical Challenges: The Chart API Resolution](#-6-technical-challenges--managed-risks)
+8. [Version Control & DevOps](#-7-version-control--devops)
+9. [Marking Criteria Alignment Table](#-marking-criteria-alignment)
+
+---
+
+## Group Contribution & Roles
 
 - **Mahfuz Chowdhury**: Product Engineering, Frontend Architecture (React/State), Research Logic (SMA/RSI), Backend Implementation (Pandas).
 - **Abdullah Jeylani**: Cloud Architecture (SQS/Fan-Out), Infrastructure Configuration, DevOps (GitHub Actions CI/CD).
