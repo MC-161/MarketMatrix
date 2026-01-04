@@ -1,3 +1,26 @@
+/**
+ * MARKET DATA HOOK - Centralized State Management
+ * 
+ * TECHNICAL JUSTIFICATION: React Hooks for Complex State Management
+ * ------------------------------------------------------------------
+ * This custom hook manages market data state using React patterns:
+ * 
+ * 1. Single Source of Truth: All market data flows through this hook, eliminating
+ *    prop drilling and ensuring data consistency across 100+ stock components.
+ * 
+ * 2. Time-Travel Playback: The timeIndex state enables historical snapshot navigation,
+ *    allowing users to view past market states.
+ * 
+ * 3. Performance Optimization: useMemo prevents expensive recalculations when filtering
+ *    or navigating historical data, avoiding unnecessary re-renders.
+ * 
+ * 4. Async Data Loading: useEffect handles S3 JSON fetch with proper loading states
+ *    and error handling.
+ * 
+ * 5. Playback Control: Automatic playback with setInterval uses refs for cleanup
+ *    and proper state synchronization.
+ */
+
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { fetchHistory, MarketSnapshot } from '../services/marketData';
 
