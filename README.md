@@ -8,7 +8,7 @@
 
 Real-time financial dashboard that visualizes the Golden Cross trading strategy across the S&P 100. Data is produced by an event-driven AWS serverless pipeline and consumed by a React/Vite frontend.
 
-![Dashboard preview]()
+https://marketmatrix-app-2025.s3.eu-north-1.amazonaws.com/index.html
 
 ## 👥 Group Contribution & Roles
 
