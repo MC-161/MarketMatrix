@@ -15,7 +15,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
 - **Mahfuz Chowdhury**: Product Engineering, Frontend Architecture (React/State), Research Logic (SMA/RSI), Backend Implementation (Pandas).
 - **Abdullah Jeylani**: Cloud Architecture (SQS/Fan-Out), Infrastructure Configuration, DevOps (GitHub Actions CI/CD).
 
-## 🔄 1. Overall Application Flow
+## 1. Overall Application Flow
 
 **What it does**: MarketMatrix transforms the Mazumder SMA research into a real-time, massively parallelized trading dashboard for the S&P 100.
 
@@ -69,7 +69,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
 5) Aggregate: Aggregator Lambda scans DynamoDB and emits `market-data-historical.json` to S3.  
 6) Visualize: React app fetches the S3 JSON feed and renders treemap, grid, and sentiment views.
 
-## 🎨 2. Frontend Design & Implementation
+## 2. Frontend Design & Implementation
 
 **Engineering Focus**: React-based implementation instead of a basic HTML grid.
 
@@ -206,7 +206,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
   - Separate components prevent unnecessary re-renders
   - Props drilling minimized via custom hooks
 
-## 💻 3. Backend Code Logic
+## 3. Backend Code Logic
 
 **Technical Justification - Research-Led Implementation with Extensions**:
 
@@ -244,7 +244,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
   - Modular class-based design for testability and maintainability.
   - Comprehensive error handling with fallback mechanisms.
 
-## ☁️ 4. Cloud Usage & Deployment
+## 4. Cloud Usage & Deployment
 
 **Technical Justification - Justified Cloud Usage & Resource Minimization**:
 
@@ -269,7 +269,7 @@ Real-time financial dashboard that visualizes the Golden Cross trading strategy 
   - **Single Request Pattern**: One JSON file contains entire market state (100 stocks + history). Frontend makes ONE request instead of 100+ API calls, reducing bandwidth by 99%.
   - **Historical Playback**: Storing snapshots in a single JSON structure enables time-travel functionality - a value-add feature NOT in the original proposal.
 
-## 🚀 5. Version Control & DevOps
+## 5. Version Control & DevOps
 
 **Technical Justification - DevOps Practices**:
 
@@ -342,7 +342,7 @@ Then open http://localhost:5173.
 
 ---
 
-## 📋 Marking Criteria Alignment
+## Marking Criteria Alignment
 
 This section explicitly maps our implementation to the project marking criteria to assist markers in evaluating the project.
 
