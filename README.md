@@ -9,19 +9,56 @@
 Real-time financial dashboard that visualizes the Golden Cross trading strategy across the S&P 100. Data is produced by an event-driven AWS serverless pipeline and consumed by a React/Vite frontend.
 
 https://marketmatrix-app-2025.s3.eu-north-1.amazonaws.com/index.html
+## Tech Stack
+
+- Frontend: React 19, Vite 6, TypeScript, Tailwind CSS, Recharts, Lucide icons.
+- Data feed: Static JSON on Amazon S3 (`market-data-historical.json`).
+- Cloud (upstream): AWS Lambda, SQS, DynamoDB, EventBridge, S3. Python with Pandas/Numpy/Requests/Boto3 for ETL.
+
+## Getting Started
+
+Prerequisites: Node.js (LTS recommended).
+
+```bash
+cd /Users/mc/Desktop/MarketMatrix/frontend
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173.
+
+## Configuration
+
+- Data source: The UI currently reads from `https://signalgrid-ui-2025.s3.eu-north-1.amazonaws.com/market-data-historical.json`.  
+  To point at your own feed, update `DATA_URL` in `src/services/marketData.ts`.
+- Styling and layout: Tailwind classes live alongside components; adjust in `src/components` as needed.
+
+## Project Structure
+
+- `src/App.tsx` — view orchestration, sentiment stats, view toggles.  
+- `src/services/marketData.ts` — fetch and normalize historical + live snapshots.  
+- `src/components/*` — UI primitives (header, treemap, cards, modal, time-travel footer).  
+- `src/hooks/*` — market data state, filters, and watchlist persistence.  
+- `src/utils/analytics.ts` — sentiment calculation.
+
+## Scripts
+
+- `npm run dev` — start Vite dev server.  
+- `npm run build` — production build.  
+- `npm run preview` — preview the production build locally.
 
 ---
 
 ## 📌 Project Index
-1. [Group Contribution & Roles](#-group-contribution--roles)
-2. [Project Evolution: Exceeding the Proposal](#-1-project-evolution-exceeding-the-proposal)
-3. [Overall Application Flow](#-2-overall-application-flow)
-4. [Frontend Design & Engineering Implementation](#-3-frontend-design--engineering-implementation)
-5. [Backend Logic & Research Extensions](#-4-backend-logic--research-extensions)
-6. [Justified Cloud Usage & Resource Minimization](#-5-cloud-usage--justification)
-7. [Technical Challenges: The Chart API Resolution](#-6-technical-challenges--managed-risks)
-8. [Version Control & DevOps](#-7-version-control--devops)
-9. [Marking Criteria Alignment Table](#-marking-criteria-alignment)
+1. [Group Contribution & Roles](group-contribution--roles)
+2. [Overall Application Flow](#1-overall-application-flow)
+3. [Overview](#overview)
+4. [Frontend Design & Engineering Implementation](#2-frontend-design--implementation)
+5. [Backend Logic & Research Extensions](#3-backend-code-logic)
+6. [Justified Cloud Usage & Resource Minimization](#4-cloud-usage--deployment)
+7. [Technical Challenges: The Chart API Resolution](#3-backend-code-logic)
+8. [Version Control & DevOps](#5-version-control--devops)
+9. [Marking Criteria Alignment Table](#marking-criteria-alignment)
 
 ---
 
@@ -310,50 +347,6 @@ https://marketmatrix-app-2025.s3.eu-north-1.amazonaws.com/index.html
   - **Version Controlled**: Infrastructure configuration is tracked through Git commits and deployment scripts in `.github/workflows/`.
   - **Reproducibility**: Deployment scripts in CI/CD pipelines ensure consistent infrastructure setup across environments.
   - **Future Enhancement**: AWS SAM templates could be added for fully declarative IaC, but current manual configuration with automated deployment provides sufficient reproducibility for this project.
-
-## Tech Stack
-
-- Frontend: React 19, Vite 6, TypeScript, Tailwind CSS, Recharts, Lucide icons.
-- Data feed: Static JSON on Amazon S3 (`market-data-historical.json`).
-- Cloud (upstream): AWS Lambda, SQS, DynamoDB, EventBridge, S3. Python with Pandas/Numpy/Requests/Boto3 for ETL.
-
-## Getting Started
-
-Prerequisites: Node.js (LTS recommended).
-
-```bash
-cd /Users/mc/Desktop/MarketMatrix/frontend
-npm install
-npm run dev
-```
-
-Then open http://localhost:5173.
-
-## Configuration
-
-- Data source: The UI currently reads from `https://signalgrid-ui-2025.s3.eu-north-1.amazonaws.com/market-data-historical.json`.  
-  To point at your own feed, update `DATA_URL` in `src/services/marketData.ts`.
-- Styling and layout: Tailwind classes live alongside components; adjust in `src/components` as needed.
-
-## Project Structure
-
-- `src/App.tsx` — view orchestration, sentiment stats, view toggles.  
-- `src/services/marketData.ts` — fetch and normalize historical + live snapshots.  
-- `src/components/*` — UI primitives (header, treemap, cards, modal, time-travel footer).  
-- `src/hooks/*` — market data state, filters, and watchlist persistence.  
-- `src/utils/analytics.ts` — sentiment calculation.
-
-## Scripts
-
-- `npm run dev` — start Vite dev server.  
-- `npm run build` — production build.  
-- `npm run preview` — preview the production build locally.
-
-## Contributing Workflow (suggested)
-
-- Branch per feature: `feature/time-travel`, `feature/treemap`, `chore/data-source`.  
-- Keep commits small and scoped; prefer fast-forward merges to maintain a linear history.  
-- Tag meaningful milestones (for example, `v0.1-ui`, `v0.2-time-travel`, `v0.3-treemap`).
 
 ---
 
